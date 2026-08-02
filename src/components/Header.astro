@@ -1,0 +1,58 @@
+---
+const base = import.meta.env.BASE_URL;
+const currentPath = Astro.url.pathname;
+const links = [
+  { label: "文章", href: `${base}archive/` },
+  { label: "标签", href: `${base}tags/` },
+  { label: "关于", href: `${base}about/` },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="wordmark" href={base} aria-label="JOEZ/WONDERS 首页">
+      JOEZ<span>/</span>WONDERS
+    </a>
+    <nav aria-label="主导航">
+      {links.map((link) => (
+        <a href={link.href} aria-current={currentPath.startsWith(link.href) ? "page" : undefined}>
+          {link.label}
+        </a>
+      ))}
+      <button class="theme-toggle" type="button" aria-label="切换深浅色主题" title="切换主题">
+        <span class="sun" aria-hidden="true">☼</span>
+        <span class="moon" aria-hidden="true">◐</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header { padding: 28px 0; }
+  .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .wordmark { font-size: 0.88rem; font-weight: 850; letter-spacing: -0.04em; }
+  .wordmark span { color: var(--accent); padding-inline: 2px; }
+  nav { display: flex; align-items: center; gap: clamp(14px, 3vw, 32px); }
+  nav a { color: var(--muted); font-size: 0.88rem; transition: color 160ms ease; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--ink); }
+  .theme-toggle {
+    position: relative;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    color: var(--ink);
+    background: transparent;
+    cursor: pointer;
+  }
+  .theme-toggle span { position: absolute; inset: 0; display: grid; place-items: center; }
+  .moon { opacity: 0; }
+  :global([data-theme="dark"]) .sun { opacity: 0; }
+  :global([data-theme="dark"]) .moon { opacity: 1; }
+  @media (max-width: 560px) {
+    nav { gap: 14px; }
+    nav a { font-size: 0.82rem; }
+    .wordmark { font-size: 0.78rem; }
+  }
+</style>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="关于" description="JOEZ/WONDERS。">
+  <section class="container about">
+    <div>
+      <p class="eyebrow">About</p>
+      <h1 class="page-heading">JOEZ</h1>
+    </div>
+    <div class="copy">
+      <a class="contact" href="https://github.com/joez-wonders">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr); gap: clamp(60px, 10vw, 150px); min-height: 72vh; padding: clamp(70px, 12vw, 150px) 0; }
+  .copy { align-self: end; }
+  .contact { display: inline-block; color: var(--accent); font-family: var(--sans); font-size: 0.85rem; }
+  @media (max-width: 760px) { .about { grid-template-columns: 1fr; min-height: auto; } }
+</style>

@@ -1,0 +1,22 @@
+---
+const year = new Date().getFullYear();
+const base = import.meta.env.BASE_URL;
+---
+
+<footer>
+  <div class="container footer-inner">
+    <p>© {year} JOEZ/WONDERS</p>
+    <div>
+      <a href={`${base}rss.xml`}>RSS</a>
+      <a href="https://github.com/joez-wonders" rel="me">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer { padding: 42px 0 54px; color: var(--muted); font-size: 0.8rem; }
+  .footer-inner { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 24px; }
+  p { margin: 0; letter-spacing: 0.05em; }
+  div div { display: flex; gap: 22px; }
+  a:hover { color: var(--ink); }
+</style>

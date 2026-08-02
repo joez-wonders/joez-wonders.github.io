@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="页面没有找到">
+  <section class="container not-found">
+    <p class="eyebrow">404</p>
+    <h1>这一页走丢了。</h1>
+    <p>也许链接已经改变，或者它还没有被写出来。</p>
+    <a href={base}>回到首页 →</a>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found { min-height: 66vh; padding: clamp(90px, 15vw, 180px) 0; }
+  h1 { margin: 0; font-family: var(--serif); font-size: clamp(3rem, 9vw, 7rem); letter-spacing: -0.06em; }
+  p:not(.eyebrow) { color: var(--muted); font-family: var(--serif); }
+  a { display: inline-block; margin-top: 30px; color: var(--accent); font-size: 0.85rem; }
+</style>

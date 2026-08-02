@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import { sortPosts } from "../lib/posts";
+
+const posts = sortPosts((await getCollection("posts")).filter((post) => !post.data.draft));
+---
+
+<BaseLayout title="文章归档" description="JOEZ/WONDERS 的全部文章。">
+  <section class="container page-top">
+    <p class="eyebrow">Archive · {posts.length} posts</p>
+    <h1 class="page-heading">文章</h1>
+  </section>
+  <section class="container list">
+    {posts.map((post) => <PostCard post={post} />)}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-top { padding: clamp(70px, 10vw, 120px) 0 70px; }
+  .list { padding-bottom: 120px; }
+</style>

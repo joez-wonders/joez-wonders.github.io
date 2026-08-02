@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("posts")).filter((post) => !post.data.draft);
+const tags = [...new Set(posts.flatMap((post) => post.data.tags))]
+  .map((tag) => ({ tag, count: posts.filter((post) => post.data.tags.includes(tag)).length }))
+  .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag, "zh-CN"));
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="标签" description="按主题浏览 JOEZ/WONDERS 的文章。">
+  <section class="container page-top">
+    <p class="eyebrow">Topics · {tags.length}</p>
+    <h1 class="page-heading">标签</h1>
+  </section>
+  <section class="container cloud">
+    {tags.map(({ tag, count }) => (
+      <a href={`${base}tags/${encodeURIComponent(tag)}/`}>
+        <span>#{tag}</span><sup>{count}</sup>
+      </a>
+    ))}
+  </section>
+</BaseLayout>
+
+<style>
+  .page-top { padding: clamp(70px, 10vw, 120px) 0 60px; }
+  .cloud { display: flex; flex-wrap: wrap; gap: 12px; min-height: 34vh; padding-bottom: 120px; }
+  .cloud a { padding: 13px 18px; border: 1px solid var(--line); border-radius: 999px; font-family: var(--serif); transition: border-color 160ms ease, color 160ms ease, transform 160ms ease; }
+  .cloud a:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+  sup { margin-left: 6px; color: var(--muted); font-family: var(--sans); font-size: 0.62rem; }
+</style>

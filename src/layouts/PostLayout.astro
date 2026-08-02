@@ -1,0 +1,51 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { formatDate, readingTime } from "../lib/posts";
+import type { Post } from "../lib/posts";
+
+interface Props { post: Post; }
+const { post } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title={post.data.title} description={post.data.description} article>
+  <article class="container article-wrap">
+    <header class="article-header">
+      <a class="back" href={`${base}archive/`}>← 返回全部文章</a>
+      <div class="meta">
+        <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
+        <span>·</span>
+        <span>{readingTime(post.body)} 分钟阅读</span>
+      </div>
+      <h1>{post.data.title}</h1>
+      {post.data.description && <p class="dek">{post.data.description}</p>}
+      <div class="tags">
+        {post.data.tags.map((tag) => <a href={`${base}tags/${encodeURIComponent(tag)}/`}>#{tag}</a>)}
+      </div>
+    </header>
+    <div class="prose"><slot /></div>
+  </article>
+</BaseLayout>
+
+<style>
+  .article-wrap { width: min(100% - 40px, 820px); padding: 68px 0 90px; }
+  .article-header { padding-bottom: 48px; border-bottom: 1px solid var(--line); }
+  .back { display: inline-block; margin-bottom: 48px; color: var(--muted); font-size: 0.82rem; }
+  .back:hover { color: var(--ink); }
+  .meta { display: flex; gap: 8px; color: var(--muted); font-size: 0.78rem; }
+  h1 { margin: 18px 0; font-family: var(--serif); font-size: clamp(2.5rem, 8vw, 5.2rem); font-weight: 600; letter-spacing: -0.055em; line-height: 1.08; }
+  .dek { max-width: 44rem; margin: 0; color: var(--muted); font-family: var(--serif); font-size: 1.18rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; color: var(--accent); font-size: 0.8rem; }
+  .prose { padding-top: 48px; font-family: var(--serif); font-size: clamp(1.08rem, 2vw, 1.18rem); line-height: 1.95; }
+  .prose :global(h2) { margin: 2.8em 0 0.8em; font-size: 1.65em; line-height: 1.35; }
+  .prose :global(h3) { margin: 2.2em 0 0.7em; font-size: 1.25em; }
+  .prose :global(p) { margin: 1.35em 0; }
+  .prose :global(a) { color: var(--accent); text-decoration: underline; text-underline-offset: 4px; }
+  .prose :global(blockquote) { margin: 2em 0; padding: 0.4em 0 0.4em 1.4em; border-left: 2px solid var(--accent); color: var(--muted); }
+  .prose :global(code) { padding: 0.15em 0.35em; border-radius: 3px; background: var(--paper-soft); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.88em; }
+  .prose :global(pre) { overflow: auto; padding: 22px; border: 1px solid var(--line); border-radius: 4px; background: var(--paper-soft); font-size: 0.84rem; line-height: 1.65; }
+  .prose :global(pre code) { padding: 0; background: transparent; }
+  .prose :global(img) { max-width: 100%; height: auto; margin: 2em 0; }
+  .prose :global(hr) { margin: 3em 0; border: 0; border-top: 1px solid var(--line); }
+  @media (max-width: 640px) { .article-wrap { width: min(100% - 28px, 820px); padding-top: 40px; } .back { margin-bottom: 34px; } }
+</style>
