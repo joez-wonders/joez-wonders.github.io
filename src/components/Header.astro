@@ -3,6 +3,7 @@ const base = import.meta.env.BASE_URL;
 const currentPath = Astro.url.pathname;
 const links = [
   { label: "文章", href: `${base}archive/` },
+  { label: "视听室", href: `${base}listen/` },
   { label: "标签", href: `${base}tags/` },
   { label: "关于", href: `${base}about/` },
 ];
@@ -51,6 +52,8 @@ const links = [
   :global([data-theme="dark"]) .sun { opacity: 0; }
   :global([data-theme="dark"]) .moon { opacity: 1; }
   @media (max-width: 560px) {
+    .header-inner { flex-wrap: wrap; gap: 12px; }
+    nav { flex-wrap: wrap; }
     nav { gap: 14px; }
     nav a { font-size: 0.82rem; }
     .wordmark { font-size: 0.78rem; }

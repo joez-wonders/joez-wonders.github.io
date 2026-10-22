@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import catalog from '../data/media-catalog.json';
+import { formatDuration } from '../lib/media';
+
+const topics = [...new Set(catalog.items.flatMap(item => item.topics))];
+const date = new Intl.DateTimeFormat('zh-CN', { timeZone: 'Asia/Shanghai', month: 'long', day: 'numeric' }).format(new Date(catalog.updatedAt));
+---
+
+<BaseLayout title="视听室" description="把收藏，真正看完。来自 Cubox 和滴答清单的视频、播客与访谈，为夜晚、周末和打扫房间的时光挑一段好内容。">
+  <div class="container listening-room">
+    <div class="room-topline"><p class="eyebrow">THE LISTENING ROOM / 私人视听室</p><span id="local-clock">北京时间</span></div>
+    <section class="room-hero" aria-labelledby="room-title">
+      <div class="hero-copy">
+        <span class="small-label"><i></i><span id="scene-label">从收藏里，挑一段好内容</span></span>
+        <h1 id="room-title">让好内容，<br />陪你过日常。</h1>
+        <p id="scene-description">视频、播客和长访谈。把一直想看的，变成此刻正在听的。</p>
+        <div class="hero-actions"><button class="button primary" id="start-recommendation"><span aria-hidden="true">▶</span> 播放此刻推荐</button><a class="text-link" href="#library">逛逛收藏 <span aria-hidden="true">↘</span></a></div>
+        <div class="collection-meta"><span><b>{catalog.items.length}</b> 段值得停留的内容</span><span class="mini-rule"></span><span>Cubox <span class="plus">＋</span> 滴答清单</span></div>
+      </div>
+      <article class="featured" id="featured" aria-label="此刻首选">
+        <div class="feature-top"><span><span class="signal">◖◗</span> 此刻首选</span><span id="feature-kind">从收藏中挑选</span></div>
+        <div class="record-art" aria-hidden="true"><div class="record-ring"></div><div class="record-center"></div><span>W</span></div>
+        <div class="feature-copy"><p class="feature-topic" id="feature-topic">SOMETHING WORTH YOUR TIME</p><h2 id="feature-title">一段好对话，<br />一小片新世界。</h2><p id="feature-description">让耳朵先出发。</p></div>
+        <div class="feature-bottom"><span id="feature-duration">为此刻准备</span><button type="button" id="feature-play" aria-label="播放此刻首选">↗</button></div>
+      </article>
+    </section>
+
+    <section class="scene-section" aria-labelledby="scene-heading">
+      <div class="scene-heading"><h2 id="scene-heading">现在，想怎样度过？</h2><span id="auto-hint">推荐会随北京时间自动切换</span></div>
+      <div class="scene-options" role="group" aria-label="选择收听场景">
+        <button class="scene-option" data-mode="auto" aria-pressed="true"><span class="scene-icon" aria-hidden="true">◷</span><span><b>跟随此刻</b><small>让时间帮你选</small></span><span class="scene-dot"></span></button>
+        <button class="scene-option" data-mode="evening" aria-pressed="false"><span class="scene-icon" aria-hidden="true">☾</span><span><b>今晚放松</b><small>慢一点，也很好</small></span><span class="scene-dot"></span></button>
+        <button class="scene-option" data-mode="weekend" aria-pressed="false"><span class="scene-icon" aria-hidden="true">☼</span><span><b>周末探索</b><small>给好奇心放个假</small></span><span class="scene-dot"></span></button>
+        <button class="scene-option" data-mode="chores" aria-pressed="false"><span class="scene-icon" aria-hidden="true">♫</span><span><b>打扫时听</b><small>手忙着，耳朵闲着</small></span><span class="scene-dot"></span></button>
+        <button class="scene-option" data-mode="focus" aria-pressed="false"><span class="scene-icon" aria-hidden="true">⌘</span><span><b>认真看一会</b><small>沿着一个问题深入</small></span><span class="scene-dot"></span></button>
+      </div>
+      <p class="recommendation-note"><span aria-hidden="true">↳</span> <span id="recommendation-reason">从你已经收藏的内容里，按此刻的场景重新排序。</span></p>
+    </section>
+
+    <aside class="resume-banner" id="resume-banner" hidden><div><span class="small-label">上次打开</span><b id="resume-title"></b><small id="resume-position"></small></div><button type="button" id="resume-button" class="button secondary">接着听 <span aria-hidden="true">→</span></button></aside>
+
+    <section id="library" aria-labelledby="library-title">
+      <div class="library-heading"><div><p class="eyebrow">YOUR COLLECTION, REVISITED</p><h2 id="library-title">把收藏，真正看完。</h2></div><p class="sync-caption">收藏快照 · {date}更新<br /><span>播放记录与队列保存在这台设备</span></p></div>
+      <div class="library-toolbar">
+        <div class="library-tabs" role="group" aria-label="内容列表"><button data-view="all" aria-pressed="true">全部收藏 <span>{catalog.items.length}</span></button><button data-view="queue" aria-pressed="false">待播队列 <span id="queue-count">0</span></button><button data-view="done" aria-pressed="false">已看完 <span id="done-count">0</span></button></div>
+        <label class="search"><span aria-hidden="true">⌕</span><input type="search" id="media-search" placeholder="搜标题、主题、平台…" aria-label="搜索收藏" /><kbd>/</kbd></label>
+      </div>
+      <div class="filter-row">
+        <div class="kind-filters" role="group" aria-label="内容形式"><button data-kind="all" aria-pressed="true">不限形式</button><button data-kind="podcast" aria-pressed="false">播客</button><button data-kind="video" aria-pressed="false">视频</button><button data-kind="interview" aria-pressed="false">访谈</button><button data-kind="listen" aria-pressed="false">只听就好</button></div>
+        <div class="select-filters"><label><span class="sr-only">主题</span><select id="topic-filter"><option value="all">所有主题</option>{topics.map(topic => <option value={topic}>{topic}</option>)}</select></label><label><span class="sr-only">收藏来源</span><select id="source-filter"><option value="all">所有来源</option><option value="Cubox">Cubox</option><option value="滴答清单">滴答清单</option></select></label></div>
+      </div>
+      <div class="results-line"><span id="result-count" role="status" aria-live="polite">共 {catalog.items.length} 条收藏</span><button class="text-link" id="reset-filters" hidden>清除筛选 ↺</button><span id="list-order">按当前场景推荐排序</span></div>
+      <div class="media-grid" id="media-grid">
+        {catalog.items.map((item, index) => (
+          <article class:list={['media-card', `palette-${index % 5}`]} data-id={item.id}>
+            <button class="card-cover" data-action="play" data-id={item.id} aria-label={`播放 ${item.title}`}>
+              <span class="cover-top"><span>{item.kind === 'podcast' ? 'AUDIO NOTES' : 'MOVING PICTURES'}</span><span class="cover-index">{String(index + 1).padStart(2, '0')}</span></span>
+              <span class="cover-word" aria-hidden="true">{item.topics[0] === '科技' ? '未来' : item.topics[0] === '产品与商业' ? '造物' : item.topics[0] === '写作与表达' ? '字间' : item.topics[0] === '人文与远方' ? '远方' : '日常'}</span>
+              <span class="cover-wave" aria-hidden="true">{Array.from({length: 25}, (_, i) => <i style={`--bar: ${12 + ((i * 17 + index * 13) % 38)}px`}></i>)}</span>
+              <span class="cover-bottom"><span>{item.platform}</span><span class="cover-play" aria-hidden="true">▶</span></span>
+              <span class="completed-stamp" hidden>✓ 已看完</span>
+            </button>
+            <div class="card-body"><div class="card-meta"><span>{item.kind === 'podcast' ? '播客' : item.interview ? '视频访谈' : '视频'}</span><span>·</span><span>{formatDuration(item.durationMinutes)}</span>{item.audioUrl && <span class="inline-badge">站内听</span>}</div><h3><button data-action="play" data-id={item.id}>{item.title}</button></h3><p class="card-description">{item.description}</p><div class="card-tags">{item.topics.map(topic => <span>{topic}</span>)}{item.listenOnly && <span class="listen-tag">♫ 可只听</span>}</div><div class="card-footer"><span class="source-label">{item.sources.map(s => s.name).join(' / ')}</span><div><button class="icon-button queue-button" data-action="queue" data-id={item.id} aria-label={`加入待播：${item.title}`} aria-pressed="false" title="加入待播队列">＋</button><button class="icon-button done-button" data-action="done" data-id={item.id} aria-label={`标记看完：${item.title}`} aria-pressed="false" title="标记已看完">✓</button></div></div></div>
+          </article>
+        ))}
+      </div>
+      <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">◌</span><h3 id="empty-title">这里暂时很安静。</h3><p id="empty-description">试试其他关键词或筛选。</p><button id="empty-reset" class="button secondary">回到全部收藏</button></div>
+      <div class="load-more"><button id="load-more" class="button secondary" hidden>再看一些 <span aria-hidden="true">↓</span></button></div>
+      <noscript><p>开启 JavaScript 后可使用时段推荐、筛选和站内播放。也可以直接打开下方原始节目链接。</p><ul>{catalog.items.map(item => <li><a href={item.url} target="_blank" rel="noopener noreferrer">{item.title} ↗</a></li>)}</ul></noscript>
+    </section>
+    <div class="room-footnote"><span class="footnote-symbol" aria-hidden="true">◖◗</span><p>好的收藏，值得一个专门的时刻。<br /><span>推荐根据时间与内容主题排序，随日期轮换。看完一段，就少一点“以后再看”。</span></p><a class="text-link" href="#main">回到顶部 ↑</a></div>
+  </div>
+
+  <dialog id="player-dialog" aria-labelledby="player-title">
+    <div class="player-header"><span class="eyebrow">NOW PLAYING / 正在播放</span><button id="close-player" class="icon-button" aria-label="关闭播放器">✕</button></div>
+    <h2 id="player-title"></h2><p id="player-meta"></p>
+    <div id="player-media"></div>
+    <p id="player-help" class="player-help"></p>
+    <div id="audio-settings" hidden><label>播放速度 <select id="playback-speed"><option value="1">1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option><option value="2">2×</option></select></label><label>定时暂停 <select id="sleep-timer"><option value="0">关闭</option><option value="15">15 分钟</option><option value="30">30 分钟</option><option value="60">60 分钟</option></select></label><span id="timer-status" role="status"></span></div>
+    <p id="player-description"></p><div id="player-sources"></div>
+    <div class="player-actions"><a id="open-original" class="button secondary" target="_blank" rel="noopener noreferrer">原站打开 ↗</a><button id="player-queue" class="button secondary">加入待播</button><button id="player-done" class="button secondary">标记看完 ✓</button><button id="play-next" class="button primary">下一段 →</button></div>
+    <p class="player-privacy">收听进度仅保存在此浏览器，不会修改 Cubox 或滴答清单。</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script id="media-data" type="application/json" set:html={JSON.stringify(catalog).replace(/</g, '\\u003c')}></script>
+  <script>
+    import '../scripts/listening-room';
+  </script>
+</BaseLayout>
+
+<style>
+  .listening-room { padding-top: 36px; padding-bottom: 16px; }
+  .room-topline { display: flex; justify-content: space-between; align-items: center; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 20px; }
+  .room-topline .eyebrow { margin: 0; font-size: .67rem; letter-spacing: .14em; }
+  #local-clock { font-size: .7rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .room-hero { display: grid; grid-template-columns: 1.15fr 1fr; gap: 70px; align-items: center; padding: 56px 0 48px; }
+  .small-label { display: inline-flex; align-items: center; gap: 8px; font-size: .74rem; color: var(--muted); }
+  .small-label i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  h1 { font-family: var(--serif); font-size: clamp(2.6rem, 4.4vw, 3.6rem); line-height: 1.3; font-weight: 500; letter-spacing: -.055em; margin: 20px 0; max-width: 540px; }
+  #scene-description { color: var(--muted); font-size: .94rem; max-width: 390px; line-height: 1.95; margin-bottom: 29px; }
+  button, select, input { -webkit-tap-highlight-color: transparent; }
+  button { cursor: pointer; }
+  button:disabled { cursor: default; opacity: .5; }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .button { border: 1px solid var(--line); display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 11px 20px; font-size: .8rem; border-radius: 5px; line-height: 1.6; transition: background 160ms, transform 160ms; }
+  .button:hover { transform: translateY(-1px); }
+  .primary { color: #fff8ee; background: var(--accent); border-color: var(--accent); }
+  .secondary { color: var(--ink); background: transparent; }
+  .secondary:hover { background: var(--paper-soft); }
+  .hero-actions { display: flex; align-items: center; gap: 26px; }
+  .text-link { font-size: .77rem; color: var(--muted); background: none; padding: 0; border: 0; }
+  .text-link:hover { color: var(--accent); }
+  .collection-meta { margin-top: 36px; display: flex; align-items: center; gap: 13px; color: var(--muted); font-size: .66rem; }
+  .collection-meta b { color: var(--ink); font-weight: 600; }
+  .mini-rule { width: 20px; height: 1px; background: var(--line); }
+  .plus { padding: 0 4px; }
+  .featured { position: relative; display: flex; flex-direction: column; min-height: 390px; overflow: hidden; isolation: isolate; padding: 25px 28px 22px; border-radius: 8px; background: #aa482f; color: #fff3e4; box-shadow: 9px 9px 0 var(--paper-soft); }
+  .feature-top, .feature-bottom { display: flex; justify-content: space-between; align-items: center; font-size: .68rem; position: relative; z-index: 2; gap: 10px; }
+  .feature-top { color: #f6d4bd; }
+  .signal { margin-right: 7px; }
+  .feature-copy { position: relative; z-index: 2; margin-top: auto; padding-top: 85px; }
+  .feature-topic { font-size: .58rem; letter-spacing: .15em; opacity: .72; margin: 0 0 10px; }
+  #feature-title { font-family: var(--serif); font-size: clamp(1.35rem, 2.2vw, 1.8rem); font-weight: 500; line-height: 1.5; margin: 0; text-wrap: pretty; }
+  #feature-description { font-size: .72rem; line-height: 1.7; color: #f5d5be; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; margin-bottom: 20px; }
+  .feature-bottom { border-top: 1px solid #ffffff30; padding-top: 14px; }
+  #feature-play { display: grid; place-items: center; width: 37px; height: 37px; border-radius: 50%; border: 1px solid #f7d7bc90; background: transparent; color: #fff1df; font-size: 1.25rem; }
+  #feature-play:hover { background: #fff1df; color: #aa482f; }
+  .record-art { position: absolute; z-index: 0; width: 260px; height: 260px; right: -35px; top: -42px; border-radius: 50%; background: repeating-radial-gradient(circle, #62302200 0px 2px, #3f261f65 3px 4px), #6b3025; box-shadow: 0 10px 20px #47201233; transform: rotate(-16deg); opacity: .7; }
+  .record-ring { position: absolute; inset: 24px; border: 1px solid #bd7658; border-radius: 50%; }
+  .record-center { position: absolute; inset: 80px; border-radius: 50%; background: #e2b091; }
+  .record-art span { position: absolute; inset: 0; display: grid; place-items: center; font: italic 42px Georgia, serif; color: #6b3025; }
+  .scene-section { padding: 24px 0 34px; border-top: 1px solid var(--line); }
+  .scene-heading { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 17px; }
+  .scene-heading h2 { margin: 0; font-size: .83rem; font-weight: 600; }
+  #auto-hint { font-size: .66rem; color: var(--muted); }
+  .scene-options { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .scene-option { display: flex; align-items: center; gap: 10px; padding: 16px 13px; color: var(--muted); border: 1px solid var(--line); border-radius: 5px; background: transparent; text-align: left; transition: background 160ms; }
+  .scene-option:hover { background: var(--paper-soft); }
+  .scene-option[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); background: var(--accent-soft); }
+  .scene-icon { font-size: 1.5rem; line-height: 1; width: 26px; color: var(--ink); }
+  .scene-option b, .scene-option small { display: block; white-space: nowrap; }
+  .scene-option b { font-size: .76rem; font-weight: 600; }
+  .scene-option small { font-size: .59rem; color: var(--muted); margin-top: 3px; }
+  .scene-dot { margin-left: auto; width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; }
+  .scene-option[aria-pressed="true"] .scene-dot { background: var(--accent); }
+  .recommendation-note { margin: 12px 0 0; color: var(--muted); font-size: .68rem; }
+  .recommendation-note > span:first-child { margin-right: 7px; color: var(--accent); }
+  .resume-banner { border: 1px solid var(--line); border-left: 3px solid var(--accent); background: var(--paper-soft); padding: 18px 22px; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 36px; }
+  .resume-banner > div { min-width: 0; }
+  .resume-banner b { display: block; font-size: .85rem; font-weight: 500; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+  .resume-banner small { display: block; color: var(--muted); font-size: .65rem; }
+  .resume-banner .button { flex-shrink: 0; }
+  #library { scroll-margin-top: 22px; }
+  .library-heading { display: flex; align-items: flex-end; justify-content: space-between; padding: 20px 0 26px; gap: 20px; }
+  .library-heading .eyebrow { font-size: .6rem; margin-bottom: 9px; }
+  .library-heading h2 { margin: 0; font-family: var(--serif); font-size: 2rem; font-weight: 500; letter-spacing: -.06em; }
+  .sync-caption { text-align: right; font-size: .65rem; color: var(--muted); margin: 0 0 4px; line-height: 1.9; }
+  .sync-caption span { opacity: .8; }
+  .library-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; }
+  .library-tabs { display: flex; gap: 24px; }
+  .library-tabs button { border: 0; padding: 6px 0; color: var(--muted); background: none; font-size: .77rem; }
+  .library-tabs button[aria-pressed="true"] { color: var(--ink); font-weight: 650; }
+  .library-tabs span { color: var(--muted); font-size: .63rem; padding-left: 5px; font-weight: 400; }
+  .search { display: flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 4px; border: 1px solid var(--line); }
+  .search > span { font-size: 1.25rem; line-height: 1; }
+  .search input { font: inherit; font-size: .72rem; width: 175px; min-width: 0; border: 0; background: transparent; color: var(--ink); outline: none; }
+  .search:focus-within { border-color: var(--accent); }
+  .search kbd { border: 1px solid var(--line); color: var(--muted); padding: 0 5px; font-size: .6rem; }
+  .filter-row { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 18px 0 5px; }
+  .kind-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+  .kind-filters button { font-size: .68rem; border: 1px solid transparent; color: var(--muted); background: transparent; padding: 5px 10px; border-radius: 4px; }
+  .kind-filters button[aria-pressed="true"] { color: var(--ink); border-color: var(--line); background: var(--paper-soft); }
+  .select-filters { display: flex; gap: 8px; }
+  select { font: inherit; font-size: .69rem; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; color: var(--muted); padding: 6px 7px; max-width: 150px; }
+  .results-line { display: flex; align-items: center; gap: 12px; justify-content: space-between; color: var(--muted); font-size: .64rem; padding: 14px 0 18px; }
+  #list-order { margin-left: auto; }
+  .media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 23px; }
+  .media-card { min-width: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; background: var(--paper); transition: box-shadow 180ms, transform 180ms; }
+  .media-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+  .card-cover { position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; align-items: stretch; width: 100%; height: 181px; border: 0; padding: 15px 19px; text-align: left; background: var(--cover); color: var(--cover-ink); }
+  .palette-0 { --cover: #d6ddcf; --cover-ink: #3b4a37; }
+  .palette-1 { --cover: #dcd2bd; --cover-ink: #665037; }
+  .palette-2 { --cover: #ced8dd; --cover-ink: #374f60; }
+  .palette-3 { --cover: #dfccc4; --cover-ink: #734a3e; }
+  .palette-4 { --cover: #d7d0df; --cover-ink: #5b4b70; }
+  :global([data-theme="dark"]) .palette-0 { --cover: #344130; --cover-ink: #c8d7bd; }
+  :global([data-theme="dark"]) .palette-1 { --cover: #473d2c; --cover-ink: #e0cfaf; }
+  :global([data-theme="dark"]) .palette-2 { --cover: #2c404c; --cover-ink: #bbd1de; }
+  :global([data-theme="dark"]) .palette-3 { --cover: #50372f; --cover-ink: #e6c5b5; }
+  :global([data-theme="dark"]) .palette-4 { --cover: #40344c; --cover-ink: #d9c6e7; }
+  .cover-top, .cover-bottom { display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+  .cover-top { font-size: .5rem; letter-spacing: .13em; }
+  .cover-index { font-family: Georgia, serif; font-size: .66rem; }
+  .cover-word { position: absolute; top: 42px; left: 20px; font-family: var(--serif); font-size: 2.65rem; letter-spacing: -.1em; font-weight: 500; }
+  .cover-wave { display: flex; align-items: center; gap: 3px; height: 60px; position: absolute; right: -4px; top: 56px; transform: rotate(-12deg); opacity: .19; }
+  .cover-wave i { display: block; background: currentColor; width: 2px; height: var(--bar); border-radius: 5px; }
+  .cover-bottom { font-size: .64rem; margin-top: auto; }
+  .cover-play { display: grid; place-items: center; border: 1px solid currentColor; width: 29px; height: 29px; border-radius: 50%; font-size: .65rem; padding-left: 2px; transition: background 160ms; }
+  .card-cover:hover .cover-play { background: var(--cover-ink); color: var(--cover); }
+  .completed-stamp { position: absolute; top: 43px; right: 12px; font-size: .6rem; background: var(--paper); color: var(--ink); padding: 4px 8px; border-radius: 3px; }
+  .card-body { display: flex; flex-direction: column; flex: 1; padding: 17px 18px 12px; }
+  .card-meta { color: var(--muted); font-size: .61rem; display: flex; align-items: center; gap: 7px; }
+  .inline-badge { margin-left: auto; color: var(--accent); font-size: .57rem; }
+  .card-body h3 { font-size: .95rem; font-weight: 600; line-height: 1.7; margin: 9px 0; }
+  .card-body h3 button { padding: 0; border: 0; background: none; color: var(--ink); text-align: left; font: inherit; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; }
+  .card-body h3 button:hover { color: var(--accent); }
+  .card-description { font-size: .72rem; line-height: 1.85; color: var(--muted); margin: 0 0 13px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: auto; padding-bottom: 16px; }
+  .card-tags span { color: var(--muted); font-size: .56rem; background: var(--paper-soft); padding: 2px 6px; border-radius: 2px; }
+  .card-tags .listen-tag { color: var(--accent); background: var(--accent-soft); }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 10px; }
+  .card-footer > div { display: flex; gap: 4px; }
+  .source-label { font-size: .59rem; color: var(--muted); }
+  .icon-button { display: inline-grid; place-items: center; border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 50%; width: 29px; height: 29px; font-size: 1rem; line-height: 1; padding: 0; }
+  .icon-button:hover, .icon-button[aria-pressed="true"] { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .done-button { font-size: .72rem; }
+  .load-more { display: flex; justify-content: center; padding: 35px 0; }
+  .empty-state { text-align: center; padding: 70px 15px; border: 1px dashed var(--line); border-radius: 6px; }
+  .empty-state > span { font-size: 3rem; color: var(--accent); }
+  .empty-state h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin: 10px; }
+  .empty-state p { font-size: .8rem; color: var(--muted); }
+  .empty-state button { margin-top: 12px; }
+  .room-footnote { display: flex; align-items: center; gap: 18px; padding: 30px 0; border-top: 1px solid var(--line); }
+  .footnote-symbol { font-size: 2rem; color: var(--accent); }
+  .room-footnote p { font-family: var(--serif); font-size: .88rem; margin: 0; }
+  .room-footnote p span { font-family: var(--sans); color: var(--muted); font-size: .65rem; }
+  .room-footnote a { margin-left: auto; white-space: nowrap; }
+  dialog { background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 10px; width: min(850px, calc(100% - 28px)); max-height: 90svh; padding: 26px; box-shadow: 0 30px 100px #0005; overscroll-behavior: contain; }
+  dialog::backdrop { background: #111b; backdrop-filter: blur(4px); }
+  .player-header { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+  .player-header .eyebrow { margin: 0; font-size: .64rem; }
+  #player-title { font-family: var(--serif); font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 500; line-height: 1.6; margin: 16px 0 4px; }
+  #player-meta { color: var(--muted); font-size: .74rem; margin: 0 0 20px; }
+  #player-media :global(iframe) { width: 100%; aspect-ratio: 16/9; display: block; border: 0; border-radius: 4px; background: #151515; }
+  #player-media :global(audio) { width: 100%; display: block; margin: 22px 0; }
+  #player-media :global(.audio-art) { background: var(--paper-soft); text-align: center; padding: 28px; border-radius: 5px; color: var(--accent); font-family: var(--serif); font-size: 1.7rem; }
+  #player-description { color: var(--muted); font-size: .82rem; }
+  .player-help { font-size: .71rem; color: var(--muted); }
+  #audio-settings { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; font-size: .7rem; color: var(--muted); margin-bottom: 15px; }
+  #audio-settings select { margin-left: 6px; }
+  #timer-status { font-size: .65rem; color: var(--accent); }
+  #player-sources { display: flex; gap: 14px; font-size: .72rem; padding: 10px 0; color: var(--muted); }
+  #player-sources :global(a) { text-decoration: underline; text-underline-offset: 4px; }
+  .player-actions { display: flex; gap: 9px; flex-wrap: wrap; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 8px; }
+  .player-actions .button { padding: 9px 13px; font-size: .71rem; }
+  #play-next { margin-left: auto; }
+  .player-privacy { font-size: .62rem; color: var(--muted); margin: 15px 0 0; }
+  .toast { position: fixed; bottom: 28px; left: 50%; transform: translate(-50%, 20px); padding: 11px 20px; background: var(--ink); color: var(--paper); border-radius: 5px; font-size: .78rem; opacity: 0; pointer-events: none; transition: opacity 160ms, transform 160ms; z-index: 50; max-width: calc(100vw - 30px); }
+  .toast.visible { transform: translate(-50%, 0); opacity: 1; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  [hidden] { display: none !important; }
+  @media (max-width: 1000px) { .room-hero { gap: 35px; } .scene-options { gap: 6px; } .scene-option { padding: 13px 9px; gap: 6px; } .scene-icon { font-size: 1.2rem; width: 19px; } .scene-option small { font-size: .55rem; } .scene-dot { display: none; } }
+  @media (max-width: 760px) { .listening-room { padding-top: 20px; } .room-hero { grid-template-columns: 1fr; padding-top: 30px; gap: 30px; } h1 { max-width: 550px; font-size: 2.8rem; } #scene-description { max-width: 470px; } .featured { min-height: 310px; } .feature-copy { padding-top: 65px; max-width: 90%; } #feature-title { font-size: 1.6rem; } .scene-options { grid-template-columns: repeat(3, 1fr); gap: 8px; } .scene-option { padding: 13px; } .scene-options .scene-option:first-child { grid-column: span 3; padding-block: 10px; } .scene-option:first-child small { display: inline; margin-left: 10px; } .scene-option:first-child > span:nth-child(2) { display: flex; align-items: center; } .scene-options { grid-template-columns: repeat(2, 1fr); } .scene-options .scene-option:first-child { grid-column: span 2; } .media-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 15px; } .library-toolbar { flex-wrap: wrap; gap: 12px; } .search { flex: 1; } .search input { width: 100%; } .filter-row { flex-wrap: wrap; gap: 10px; } .library-tabs { gap: 20px; } .sync-caption { font-size: .58rem; } .room-footnote { gap: 12px; } .room-footnote p span { display: block; max-width: 370px; } }
+  @media (max-width: 480px) { .room-topline { align-items: flex-start; } .room-topline .eyebrow { font-size: .56rem; } #local-clock { font-size: .58rem; text-align: right; } .room-hero { padding-bottom: 32px; } h1 { font-size: 2.55rem; } .hero-actions { gap: 21px; } .collection-meta { margin-top: 25px; } .featured { min-height: 330px; padding: 22px; } #feature-title { font-size: 1.45rem; } .scene-heading { align-items: flex-start; flex-direction: column; gap: 5px; } .scene-heading h2 { font-size: .8rem; } .scene-option b { font-size: .74rem; } .scene-option small { font-size: .59rem; } .library-heading { flex-direction: column; align-items: flex-start; gap: 9px; } .library-heading h2 { font-size: 1.9rem; } .sync-caption { text-align: left; } .sync-caption br { display: none; } .sync-caption span { margin-left: 6px; } .library-tabs { width: 100%; justify-content: space-between; gap: 8px; } .search { width: 100%; } .media-grid { grid-template-columns: 1fr; gap: 22px; } .card-cover { height: 180px; } .card-body h3 { font-size: 1rem; } .card-meta { font-size: .66rem; } .card-description { font-size: .77rem; } .card-tags span { font-size: .6rem; } .source-label { font-size: .65rem; } .icon-button { width: 33px; height: 33px; } .kind-filters { gap: 2px; } .kind-filters button { padding: 5px 8px; } #list-order { font-size: .59rem; } .room-footnote a { display: none; } .resume-banner { padding: 13px; } .resume-banner .button { padding: 9px; font-size: .7rem; } dialog { padding: 19px; } #play-next { margin-left: 0; } }
+</style>

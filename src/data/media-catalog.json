@@ -1,0 +1,1023 @@
+{
+  "updatedAt": "2026-10-22T14:04:56.678Z",
+  "timezone": "Asia/Shanghai",
+  "items": [
+    {
+      "id": "cubox-7512531826301208124",
+      "title": "教你在地球任一角落都能玩得很爽的方法",
+      "description": "分享旅行中的探索方法，练习在陌生地方和熟悉日常中发现乐趣。",
+      "url": "https://www.bilibili.com/video/BV11api6iEe3/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "人文与远方"
+      ],
+      "scenes": [
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-10-21",
+      "durationMinutes": 4,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7512531826301208124"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7512196390034869595",
+      "title": "Ex-DeepMind Scientist: Robots Might Just Start Building Other Robots",
+      "description": "Generalist创始人Pete Florence聊机器人学习、灵巧操作与物理世界的数据采集。",
+      "url": "https://www.youtube.com/watch?v=5Gy4GbCCSwI",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-20",
+      "durationMinutes": 66,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7512196390034869595"
+        }
+      ]
+    },
+    {
+      "id": "ticktick-6ad75c696323910d6c8232ee",
+      "title": "从东北到东亚，历史是一个过程，人也是",
+      "description": "跟随宋念申重走沈阳西塔，从城市漫步与个人记忆，理解东北和东亚历史的流动。",
+      "url": "https://www.xiaoyuzhoufm.com/episode/6ad58dbe641ef406308db8a7",
+      "kind": "podcast",
+      "platform": "小宇宙",
+      "topics": [
+        "人文与远方",
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": false,
+      "savedAt": "2026-10-20",
+      "audioUrl": "https://media.xyzcdn.net/6388760f22567e8ea6ad070f/lgoluEQq4aiWJ4bg5jk-Im4qhzC5.m4a",
+      "durationMinutes": 110,
+      "sources": [
+        {
+          "name": "滴答清单",
+          "url": "https://dida365.com/webapp/#p/inbox1019684118/tasks/6ad75c696323910d6c8232ee"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7511877937960848929",
+      "title": "Is Meta’s Muse Wonder model any good?",
+      "description": "实测Meta Muse Wonder模型，讨论它在智能体任务与设计工作中的表现。",
+      "url": "https://www.youtube.com/watch?v=dChiPsd0uF4",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-10-19",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7511877937960848929"
+        }
+      ]
+    },
+    {
+      "id": "ticktick-6ad62f38df9d919f4da7bac9",
+      "title": "USV’s New $900M Fund: Fred Wilson, Rebecca Kaden & Mike Mignano",
+      "description": "对话USV的Fred Wilson、Rebecca Kaden与Mike Mignano，聊新基金与投资方向。",
+      "url": "https://www.youtube.com/watch?v=sYH4fKKtSPw",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-19",
+      "sources": [
+        {
+          "name": "滴答清单",
+          "url": "https://dida365.com/webapp/#p/inbox1019684118/tasks/6ad62f38df9d919f4da7bac9"
+        }
+      ]
+    },
+    {
+      "id": "ticktick-6ad42e329d2211763c4b9c1c",
+      "title": "#387  一场影响了一众 AI 大佬的「思想实验」：从道德哲学开始的思辨、落地、演变和影响",
+      "description": "从彼得·辛格的思想实验出发，聊有效利他、公益捐赠，以及理想在现实中的取舍。",
+      "url": "https://www.xiaoyuzhoufm.com/episode/69f328403a8b483a792671ba",
+      "kind": "podcast",
+      "platform": "小宇宙",
+      "topics": [
+        "科技",
+        "人文与远方"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": false,
+      "savedAt": "2026-10-18",
+      "audioUrl": "https://media.xyzcdn.net/5e2831ed418a84a046231c00/lvlzO1XStteo_Va0ew6p_slnB0u8.mp3",
+      "durationMinutes": 75,
+      "sources": [
+        {
+          "name": "滴答清单",
+          "url": "https://dida365.com/webapp/#p/inbox1019684118/tasks/6ad42e329d2211763c4b9c1c"
+        }
+      ]
+    },
+    {
+      "id": "ticktick-6ad42efded9591763c4ba049",
+      "title": "VOL68 成年人最难学会的，是重新做一个初学者",
+      "description": "成年人如何重新成为初学者：用二八法则、费曼技巧等方法进入陌生领域。",
+      "url": "https://www.xiaoyuzhoufm.com/episode/6ab54ee7195d838e2ae9d681",
+      "kind": "podcast",
+      "platform": "小宇宙",
+      "topics": [
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": false,
+      "savedAt": "2026-10-18",
+      "audioUrl": "https://media.xyzcdn.net/674935cfe9dd2ca54c03ac15/lqb-sc9pnfFWWcH1J6QRcRFZ5efX.m4a",
+      "durationMinutes": 45,
+      "sources": [
+        {
+          "name": "滴答清单",
+          "url": "https://dida365.com/webapp/#p/inbox1019684118/tasks/6ad42efded9591763c4ba049"
+        }
+      ]
+    },
+    {
+      "id": "ticktick-6ad43943af56d1763c4ba476",
+      "title": "EP28 我到底在一直逃避些什么？",
+      "description": "聊聊否认心态如何阻碍行动，以及怎样看见恐惧、从小步改变走向自我重建。",
+      "url": "https://www.xiaoyuzhoufm.com/episode/6ab9e416195d838e2aeaed63",
+      "kind": "podcast",
+      "platform": "小宇宙",
+      "topics": [
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": false,
+      "savedAt": "2026-10-18",
+      "audioUrl": "https://media.xyzcdn.net/668d00c38fcadceb90158ac1/liz4cJd658x8btvj5926JxIldK5e.m4a",
+      "durationMinutes": 78,
+      "sources": [
+        {
+          "name": "滴答清单",
+          "url": "https://dida365.com/webapp/#p/inbox1019684118/tasks/6ad43943af56d1763c4ba476"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7510963199257086374",
+      "title": "You need to be delusional if you want to succeed.",
+      "description": "关于自我信念与行动的一段分享，思考如何面对还没得到外界认可的目标。",
+      "url": "https://www.youtube.com/watch?v=rAjMOfKSAks",
+      "kind": "video",
+      "platform": "YouTube",
+      "topics": [
+        "自我与生活"
+      ],
+      "scenes": [
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-10-17",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7510963199257086374"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7510963028414697218",
+      "title": "No.1 Neuroscientist Reveals How To Unlock Superhuman Focus & Perfect Memory! - Dr. Sahar Yousef",
+      "description": "神经科学家Sahar Yousef聊专注力、记忆与数字习惯，理解注意力怎样受到日常环境影响。",
+      "url": "https://www.youtube.com/watch?v=yePLuwL3FbM",
+      "kind": "video",
+      "platform": "YouTube",
+      "topics": [
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-17",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7510963028414697218"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7510085375436521867",
+      "title": "The Writing Habits Behind 50 Million Books Sold (Jodi Picoult Interview)",
+      "description": "畅销作家Jodi Picoult分享写作习惯、研究过程，以及持续完成作品的方法。",
+      "url": "https://www.youtube.com/watch?v=Z-msmHznQWk",
+      "kind": "video",
+      "platform": "YouTube",
+      "topics": [
+        "写作与表达"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-15",
+      "durationMinutes": 74,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7510085375436521867"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7509341009315104737",
+      "title": "Meta Muse: the AI agent people actually love",
+      "description": "对话Meta设计负责人Alex Cornell，拆解Muse智能体的交互设计与产品体验。",
+      "url": "https://www.youtube.com/watch?v=4TOLm1g-gCE",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-12",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7509341009315104737"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7509145392487861637",
+      "title": "019:\"我命在我不在天\":中国\"亚比\"基因在道教",
+      "description": "从修仙小说聊到道教的贵生哲学，看看“不认命”的心态如何穿过中国历史与当代亚文化。",
+      "url": "https://www.xiaoyuzhoufm.com/episode/6ac9c371195d838e2aef9f29",
+      "kind": "podcast",
+      "platform": "小宇宙",
+      "topics": [
+        "人文与远方"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": false,
+      "savedAt": "2026-10-12",
+      "audioUrl": "https://media.xyzcdn.net/69b8ee296ce8eb3aaa98a25e/ln7v9uUQ7LScVJb5zN8oR4SE9CzG.m4a",
+      "durationMinutes": 56,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7509145392487861637"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7508303781591777683",
+      "title": "What Separates Great Writers From Good Ones (Robert Greene Interview)",
+      "description": "Robert Greene谈写作的观察、积累与打磨，以及好作品背后的思考习惯。",
+      "url": "https://www.youtube.com/watch?v=nBPUOiv7M0U",
+      "kind": "video",
+      "platform": "YouTube",
+      "topics": [
+        "写作与表达"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-10",
+      "durationMinutes": 97,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7508303781591777683"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7507847784830078811",
+      "title": "Jaan Tallinn on How Close We Are to Losing Control of AI",
+      "description": "对话Skype联合创始人Jaan Tallinn，聊AI发展的风险、控制问题与人类未来。",
+      "url": "https://www.youtube.com/watch?v=KDJR3zLljPs",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "人文与远方"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-08",
+      "durationMinutes": 67,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7507847784830078811"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7507386519783475224",
+      "title": "117. 开源一段论文探索之旅：模型范式、Infra和数据、语言、多模态的完整变迁史",
+      "description": "沿着36篇经典AI论文，梳理模型范式、算力与数据、语言和多模态的演变。",
+      "url": "https://www.xiaoyuzhoufm.com/episode/68ff9d1b083a71a4eb86c52c",
+      "kind": "podcast",
+      "platform": "小宇宙",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-07",
+      "audioUrl": "https://media.xyzcdn.net/626b46ea9cbbf0451cf5a962/ludOBUWHSc2Y_GA47pSOwlGC8JPS.m4a",
+      "durationMinutes": 263,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7507386519783475224"
+        },
+        {
+          "name": "滴答清单",
+          "url": "https://dida365.com/webapp/#p/inbox1019684118/tasks/6ac5ddfbf21c91c709cf1dc7"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7507385048476156550",
+      "title": "GPT6模型发布，AGI已经到来｜与OpenAI工程师赵迪的对谈：Astra、Codex、Grok、大模型Infra，“最混蛋的人”马斯克与奥特曼的智能平权",
+      "description": "与OpenAI工程师赵迪对谈，围绕大模型、基础设施与AI产品演进展开讨论。",
+      "url": "https://www.bilibili.com/video/BV1wkbF61ERR/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-07",
+      "durationMinutes": 74,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7507385048476156550"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7506804730610321662",
+      "title": "Jev: 8 real use cases this fast, cheap model",
+      "description": "通过八个真实使用场景，看看快速、低成本模型Jev怎样融入日常工作。",
+      "url": "https://www.youtube.com/watch?v=dAIIaepNhQM",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-10-05",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7506804730610321662"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7506371551474748349",
+      "title": "每次送礼都不知道买什么？我很会买",
+      "description": "从具体礼物聊送礼思路，寻找更贴合对方生活与兴趣的选择。",
+      "url": "https://www.bilibili.com/video/BV1zWh16GE9k/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "人文与远方"
+      ],
+      "scenes": [
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-10-04",
+      "durationMinutes": 6,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7506371551474748349"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7505484773943411805",
+      "title": "缺失内心动力的时代",
+      "description": "围绕内心动力展开讨论，思考人在当下如何理解行动意愿与生活方向。",
+      "url": "https://www.bilibili.com/video/BV1GpaR6ZEfX/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "人文与远方",
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": false,
+      "savedAt": "2026-10-02",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7505484773943411805"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7505358090074590406",
+      "title": "【超深度】如何拯救我的记忆力？对谈北大脑科学博士 ft. 曾健智｜TIANYU2FM - E126",
+      "description": "与脑科学博士曾健智对谈记忆力，理解记忆的机制与日常使用方式。",
+      "url": "https://www.bilibili.com/video/BV1rg8AzMEXL/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-01",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7505358090074590406"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7505357983094672596",
+      "title": "Huberman Lab:如何提升动力、克服拖延｜Masud Husain 博士",
+      "description": "Huberman Lab对话Masud Husain，围绕动力、行动与拖延展开讨论。",
+      "url": "https://www.bilibili.com/video/BV1v5bn6sEGq/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-01",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7505357983094672596"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7505357857747894378",
+      "title": "Huberman Lab《如何清晰自信地说话 [20251117]》中英字幕",
+      "description": "从声音与表达方式入手，讨论怎样更清楚、更自信地说话。",
+      "url": "https://www.bilibili.com/video/BV1kKMM6SE49/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "产品与商业",
+        "写作与表达",
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-01",
+      "durationMinutes": 146,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7505357857747894378"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7505357771605281263",
+      "title": "如何在任何年龄改善记忆与认知功能  | Alan Castel | huberman lab",
+      "description": "Alan Castel谈记忆与认知功能，讨论不同年龄阶段的学习和记忆。",
+      "url": "https://www.bilibili.com/video/BV1JtN86PEtE/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "自我与生活"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-10-01",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7505357771605281263"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7505131703950642055",
+      "title": "【官方双语】压缩即智能：Part1，重新发明熵",
+      "description": "从信息熵与数据压缩出发，理解“压缩即智能”背后的基本想法。",
+      "url": "https://www.bilibili.com/video/BV1yVNU6xERx/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "科技"
+      ],
+      "scenes": [
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-10-01",
+      "durationMinutes": 32,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7505131703950642055"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7504998171009879516",
+      "title": "Project Hail Mary Author Reveals His Writing Process (Andy Weir Interview)",
+      "description": "《火星救援》《挽救计划》作者Andy Weir分享科幻写作、科学细节与叙事过程。",
+      "url": "https://www.youtube.com/watch?v=1WX2hpu_-N8",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "写作与表达"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-09-30",
+      "durationMinutes": 70,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7504998171009879516"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7504586463934154244",
+      "title": "Meet the Ex-OpenAI & DeepMind Leads Creating an AI Scientist",
+      "description": "对话前OpenAI与DeepMind研究者，聊AI如何进入实验室，以及自动化科学研究需要哪些能力。",
+      "url": "https://www.youtube.com/watch?v=vJVZgeXKlVo",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-09-29",
+      "durationMinutes": 60,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7504586463934154244"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7504268828247853965",
+      "title": "I’m using Jev more than Opus 5.5 or GPT-6. Here’s why.",
+      "description": "从具体工作流比较Jev与其他AI模型，讨论如何选择适合任务的工具。",
+      "url": "https://www.youtube.com/watch?v=-KIBgpGA_XI",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技"
+      ],
+      "scenes": [
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-09-28",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7504268828247853965"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7503806806947267023",
+      "title": "独自在四川广元古蜀道徒步108km",
+      "description": "跟随108公里古蜀道徒步，看看四川广元的山路、自然与沿途生活。",
+      "url": "https://www.bilibili.com/video/BV1whei6tEWh/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "人文与远方"
+      ],
+      "scenes": [
+        "evening",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-09-27",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7503806806947267023"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7503733941271005336",
+      "title": "What Happens When the AI Boom Runs Out of Money",
+      "description": "讨论AI产业的资金投入与商业模式，思考高速增长背后的经济条件。",
+      "url": "https://www.youtube.com/watch?v=h-0NZ-oIjlk",
+      "kind": "video",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-09-27",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7503733941271005336"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7502436316273969293",
+      "title": "Oscar-Winning Writer Teaches Storytelling (Michael Arndt Interview)",
+      "description": "奥斯卡获奖编剧Michael Arndt讲解故事结构、开场设计和让观众投入角色的方法。",
+      "url": "https://www.youtube.com/watch?v=gi3xYwX7PN4",
+      "kind": "video",
+      "platform": "YouTube",
+      "topics": [
+        "写作与表达",
+        "人文与远方"
+      ],
+      "scenes": [
+        "chores",
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-09-23",
+      "durationMinutes": 77,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7502436316273969293"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7501731467559436719",
+      "title": "Muse gets AI agent UX right",
+      "description": "从用户体验出发评测Meta Muse，讨论个人AI智能体怎样变得更易用。",
+      "url": "https://www.youtube.com/watch?v=2UwemqPkJSQ",
+      "kind": "podcast",
+      "platform": "YouTube",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2026-09-21",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7501731467559436719"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7410560341186186037",
+      "title": "Manus决定出售前最后的访谈：啊，这奇幻的2025年漂流啊…",
+      "description": "对话Manus联合创始人季逸超，回顾智能体产品的探索、团队与创业经历。",
+      "url": "https://www.bilibili.com/video/BV1knvYBDEjs/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2026-01-13",
+      "durationMinutes": 211,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7410560341186186037"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7382116676805855484",
+      "title": "【采访技能】高手总能问到点儿上/快速提一个好问题/记者职业技能大突破",
+      "description": "围绕采访中的提问方式，练习从泛泛的问答追到具体的信息。",
+      "url": "https://www.bilibili.com/video/BV1so4y1V7gi/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "写作与表达"
+      ],
+      "scenes": [
+        "evening",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2025-10-26",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7382116676805855484"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7364361330897191302",
+      "title": "【中英+笔记】千亿美金支付巨头Stripe总裁兼联合创始人Collison访谈｜2024.09.19",
+      "description": "John Collison 分享 Stripe 的发展与支付基础设施，聊如何把复杂支付变成易用的产品。",
+      "url": "https://www.bilibili.com/video/BV1GgtoerEgK/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2025-09-07",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7364361330897191302"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7364361464246700898",
+      "title": "【Stripe访谈】与Anthropic CEO畅聊AI未来，探讨AI模型的商业化与未来趋势",
+      "description": "Stripe对话Anthropic CEO，聊AI模型的商业化与行业未来。",
+      "url": "https://www.bilibili.com/video/BV1aGtvzuERn/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "科技",
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2025-09-07",
+      "durationMinutes": 63,
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7364361464246700898"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7249313713637819982",
+      "title": "【高清修复】乔布斯·遗失的采访 The Lost Interview 1995 【中英精校】",
+      "description": "1995 年的乔布斯长访谈，回顾计算机、产品设计与创造过程中的判断。",
+      "url": "https://www.bilibili.com/video/BV1jM4y1W7gM/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "产品与商业"
+      ],
+      "scenes": [
+        "chores",
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": true,
+      "interview": true,
+      "savedAt": "2024-10-25",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7249313713637819982"
+        }
+      ]
+    },
+    {
+      "id": "cubox-7119663633100964150",
+      "title": "做IT软件项目，如何进行需求调研",
+      "description": "从软件项目的需求调研出发，理解如何厘清用户问题和项目目标。",
+      "url": "https://www.bilibili.com/video/BV1jg411i7gE/",
+      "kind": "video",
+      "platform": "哔哩哔哩",
+      "topics": [
+        "产品与商业"
+      ],
+      "scenes": [
+        "focus",
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2023-11-02",
+      "sources": [
+        {
+          "name": "Cubox",
+          "url": "https://cubox.pro/web/card/7119663633100964150"
+        }
+      ]
+    },
+    {
+      "id": "ticktick-62ee93101feaf55657d67792",
+      "title": "How to Draw Trees with Pen & Ink",
+      "description": "一堂钢笔画树木练习，观察树形、线条与明暗层次，适合边看边动笔。",
+      "url": "https://www.youtube.com/watch?v=q_DSE4J3X8U",
+      "kind": "video",
+      "platform": "YouTube",
+      "topics": [
+        "灵感"
+      ],
+      "scenes": [
+        "weekend"
+      ],
+      "listenOnly": false,
+      "interview": false,
+      "savedAt": "2022-08-07",
+      "sources": [
+        {
+          "name": "滴答清单",
+          "url": "https://dida365.com/webapp/#p/633cf98ab6540c031de1c306/tasks/62ee93101feaf55657d67792"
+        }
+      ]
+    }
+  ]
+}
